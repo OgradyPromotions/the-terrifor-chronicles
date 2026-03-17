@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8">
+    <title>The Terrifor Chronicles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/69b49909d995a54f934fd4bc/e7840f6d-d304-4585-8d26-84fb88648d0e/21155.png">
+    <meta property="og:title" content="The Terrifor Chronicles">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/69b49909d995a54f934fd4bc/e7840f6d-d304-4585-8d26-84fb88648d0e/21155.png">
+    <meta property="og:site_name" content="The Terrifor Chronicles">
+    <meta property="og:description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="The Terrifor Chronicles">
+    <meta name="twitter:image" content="https://images.squarespace-cdn.com/content/v1/69b49909d995a54f934fd4bc/e7840f6d-d304-4585-8d26-84fb88648d0e/21155.png">
+
+    <!-- Fonts (roughly matching original) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --bg: #050608;
+        --bg-alt: #0b0d12;
+        --accent: #facc15;
+        --accent-soft: rgba(250, 204, 21, 0.1);
+        --text: #f9fafb;
+        --muted: #9ca3af;
+        --max-width: 1100px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(circle at top, #101827 0, #020617 60%);
+        color: var(--text);
+        font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        min-height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(16px);
+        background: linear-gradient(to bottom, rgba(2,6,23,0.95), rgba(2,6,23,0.75), transparent);
+        border-bottom: 1px solid rgba(148,163,184,0.15);
+      }
+
+      .header-inner {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0.75rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+      }
+
+      .logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .logo-wrap img {
+        height: 52px;
+        width: auto;
+        border-radius: 0.5rem;
+      }
+
+      .site-title {
+        font-family: "Anton", system-ui, sans-serif;
+        letter-spacing: 0.08em;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.25rem;
+        font-size: 0.9rem;
+      }
+
+      nav a {
+        color: var(--muted);
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      nav a.active {
+        color: var(--accent);
+      }
+
+      /* Layout */
+      main {
+        flex: 1;
+      }
+
+      .hero {
+        max-width: var(--max-width);
+        margin: 2.5rem auto 2rem;
+        padding: 1.5rem 1.25rem 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      @media (max-width: 800px) {
+        .hero {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        header {
+          position: static;
+        }
+        .header-inner {
+          flex-wrap: wrap;
+        }
+        nav {
+          width: 100%;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+        }
+      }
+
+      .hero-kicker {
+        font-size: 0.8rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+      }
+
+      .hero-title {
+        font-family: "Anton", system-ui, sans-serif;
+        font-size: clamp(2.6rem, 4vw, 3.2rem);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin: 0 0 0.75rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.05rem;
+        color: var(--muted);
+        max-width: 32rem;
+        line-height: 1.7;
+      }
+
+      .hero-tagline {
+        margin-top: 1.25rem;
+        padding: 0.6rem 0.9rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148,163,184,0.4);
+        background: rgba(15,23,42,0.7);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .hero-tagline span:first-child {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 18px rgba(250,204,21,0.9);
+      }
+
+      .hero-image-frame {
+        position: relative;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        background: radial-gradient(circle at 20% 0, #1e293b 0, #020617 60%);
+        border: 1px solid rgba(148,163,184,0.3);
+        box-shadow:
+          0 18px 45px rgba(15,23,42,0.9),
+          0 0 0 1px rgba(15,23,42,0.8);
+      }
+
+      .hero-image-frame img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .hero-image-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 20% 0, rgba(250,204,21,0.18), transparent 55%),
+          radial-gradient(circle at 80% 100%, rgba(56,189,248,0.12), transparent 50%);
+        mix-blend-mode: screen;
+        pointer-events: none;
+      }
+
+      .hero-pill {
+        position: absolute;
+        left: 1rem;
+        bottom: 1rem;
+        padding: 0.4rem 0.85rem;
+        border-radius: 999px;
+        background: rgba(15,23,42,0.85);
+        border: 1px solid rgba(148,163,184,0.5);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+      }
+
+      /* Story section */
+      .story-section {
+        max-width: var(--max-width);
+        margin: 0 auto 3rem;
+        padding: 0 1.25rem 2.5rem;
+      }
+
+      .story-heading {
+        margin-bottom: 1rem;
+      }
+
+      .story-heading h2 {
+        font-family: "Anton", system-ui, sans-serif;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        margin: 0 0 0.3rem;
+      }
+
+      .story-heading p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .story-card {
+        border-radius: 1.25rem;
+        background: radial-gradient(circle at top left, rgba(15,23,42,1) 0, #020617 60%);
+        border: 1px solid rgba(148,163,184,0.35);
+        padding: 1.75rem 1.5rem;
+      }
+
+      @media (min-width: 900px) {
+        .story-card {
+          padding: 2rem 2.25rem;
+        }
+      }
+
+      .story-card p {
+        line-height: 1.9;
+        font-size: 0.98rem;
+        margin: 0 0 1rem;
+      }
+
+      .story-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .story-card strong u {
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+      }
+
+      /* Gallery-ish image row */
+      .gallery-row {
+        max-width: var(--max-width);
+        margin: 0 auto 3.5rem;
+        padding: 0 1.25rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .gallery-item {
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1px solid rgba(148,163,184,0.3);
+        background: #020617;
+      }
+
+      .gallery-item img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      footer {
+        border-top: 1px solid rgba(148,163,184,0.25);
+        padding: 1.5rem 1.25rem 2rem;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .footer-inner {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .footer-links a {
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="logo-wrap">
+          <img src="https://images.squarespace-cdn.com/content/v1/69b49909d995a54f934fd4bc/e7840f6d-d304-4585-8d26-84fb88648d0e/21155.png?format=1500w"
+               alt="The Terrifor Chronicles logo">
+          <div class="site-title">The Terrifor Chronicles</div>
+        </div>
+        <nav>
+          <a href="#" class="active">Terrifor‑Home</a>
+          <a href="https://the-terrifor-chronicles.squarespace.com/silence-of-the-terrifor">Silence Of The Terrifor</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="page">
+      <!-- Hero -->
+      <section class="hero">
+        <div>
+          <div class="hero-kicker">Do you have what it takes?</div>
+          <h1 class="hero-title">The Terrifor Chronicles</h1>
+          <p class="hero-subtitle">
+            A global children’s adventure series where courage, creativity, and individuality stand against a mysterious force that thrives on silence and conformity.
+          </p>
+          <div class="hero-tagline">
+            <span></span>
+            <span>From Lethbridge to Stockholm to Tairāwhiti — ordinary kids, extraordinary battles.</span>
+          </div>
+        </div>
+        <div class="hero-image-frame">
+          <!-- main “cover” style image from your Squarespace page -->
+          <img src="https://images.squarespace-cdn.com/content/v1/69b49909d995a54f934fd4bc/6eda6f5c-bc7e-4305-9213-2447a33b0b9d/21133.jpg?format=1500w"
+               alt="Terrifor Chronicles illustration">
+          <div class="hero-image-overlay"></div>
+          <div class="hero-pill">Global Children’s Adventure Series</div>
+        </div>
+      </section>
+
+      <!-- Story / pitch -->
+      <section class="story-section">
+        <div class="story-heading">
+          <h2>The Chronicles of the Terrifor</h2>
+          <p>Imagination, unity, and culture vs. the shadows of silence.</p>
+        </div>
+        <div class="story-card">
+          <p>
+            <strong><u>The Chronicles of the Terrifor</u></strong> is a global children’s adventure series where courage, creativity, and individuality stand against a mysterious force that thrives on silence and conformity. In every corner of the world, a different Terrifor rises, feeding on the culture, music, language, and spirit of a place. But in each story, a young hero discovers that imagination and unity are stronger than fear. From the coulees of Lethbridge to Stockholm, Sweden, all the way to Tairāwhiti (Gisborne) New&nbsp;Zealand, ordinary kids rise up to protect the soul of their communities.
+          </p>
+          <p>
+            Blending myth, mystery, and real‑world locations,
+            <strong><u>The Chronicles of the Terrifor</u></strong> celebrates the power of culture and the beauty of being different. Each story invites readers into a new place, a new hero, and a new battle to keep creativity alive. Because when people dare to express who they truly are, even the darkest shadows cannot silence the world.
+          </p>
+        </div>
+      </section>
+
+      <!-- Additional visual strip: secondary illustration(s) from the original page -->
+      <section class="gallery-row">
+        <div class="gallery-item">
+          <img src="https://images.squarespace-cdn.com/content/v1/69b49909d995a54f934fd4bc/183d989b-aa48-4b37-92ba-1a4803944760/21142.jpg?format=1500w"
+               alt="Terrifor scene 1">
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> The Terrifor Chronicles</div>
+        <div class="footer-links">
+          <a href="https://the-terrifor-chronicles.squarespace.com" target="_blank" rel="noopener">Original Squarespace Site</a>
+        </div>
+      </div>
+      <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+      </script>
+    </footer>
+  </body>
+</html>
